@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(index, i) in mercado">
+                {{i+1}} - {{index}}
+            </li>
+        </ul>
+    </div>
+
+    <div id="player">
+        <ul>
+            <li v-for="(value, key, index) in player">
+                {{key}} - {{value}}
+            </li>
+        </ul>
+    </div>
+
+    <div id="cursos">
+        <ul>
+            <li v-for = "(index, i) in cursos">
+                <p>Curso {{i+1}} - {{index}}</p>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                mercado: ["Arroz", "Feijão", "Carne", "Frutas", "Verduras", "Doces"],
+            }
+        });
+        var player = new Vue({
+            el: '#player',
+            data: {
+                player: {
+                    nome: "Mario",
+                    vidas: 3,
+                    mundo: "Candy Island",
+                    powerups: true,
+                }
+            }
+        });
+        var cursos = new Vue({
+            el: '#cursos',
+            data: {
+                cursos: ["HTML", "CSS", "JAVASCRIPT", "BOOTSTRAP", "REACT", "THREE.JS", "VUE.JS"],
+            }
+        });
+    </script>
+</body>
+</html>

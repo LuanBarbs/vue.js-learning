@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="vueCondicional">
+        <p v-if = 'Aprendi==true'>Parabéns! Continue conquistando novas habilidades.
+        </p>
+        <p v-else >Revise o conteúdo e tire suas dúvidas.</p>
+    </div>
+
+    <div id="app">
+        <div v-if = 'count > 10' >O número é maior que 10!</div>
+        <div v-else-if = 'count == 10' >O número é igual a 10!</div>
+        <div v-else >O número é menor que 10!</div>
+    </div>
+
+    <div id="aluno">
+        <p v-if = 'nota >= 60' >O aluno {{nome}} de média {{nota}} foi aprovado!</p>
+        <p v-else >O aluno {{nome}} de média {{nota}} foi reprovado!</p>
+    </div>
+
+    <script>
+        var verifica = new Vue({
+            el: '#aluno',
+            data: {
+                nome: "Luan",
+                nota: 50, 
+            }
+        });
+
+        var vue = new Vue({
+            el: '#vueCondicional',
+            data: {
+                Aprendi: true,
+            },
+        });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                count: 8,
+            }
+        });
+    </script>
+</body>
+</html>

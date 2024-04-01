@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+</head>
+<body>
+    <div id="divID">
+        <p>O texto é: {{text}}</p>
+        <p>O ano que vem será: {{number+1}}</p>
+        <p>O objeto é: {{player}}</p>
+    </div>
+
+    <div id="divEX">
+        <p>Meu nome é {{nome}}.</p>
+        <p>Eu tenho {{idade}} anos.</p>
+        <p>Eu estou aprendendo {{curso}} na {{empresa}}!</p>
+    </div>
+
+    <script>
+        var vue2 = new Vue({
+            el: '#divEX',
+            data: {
+                nome: "Luan Henrique da Silva Barbosa",
+                idade: 19,
+                curso: "Vue.js",
+                empresa: "CodiAcademy",
+            },
+        });
+
+        var vue = new Vue({
+            el: '#divID',
+            data: {
+                text: "Hello World",
+                number: 2024,
+                player: {
+                    nome: "Mario",
+                    vidas: 3,
+                }
+            },
+        });
+        setTimeout(() => {
+            vue.player.nome = "Luigi";
+        }, 2000);
+        vue.$watch('player.nome', function(){
+            alert("O nome mudou!");
+        });
+        vue.freeze(nome);
+        vue.player.nome = "Princesa";
+
+
+    </script>
+</body>
+</html>

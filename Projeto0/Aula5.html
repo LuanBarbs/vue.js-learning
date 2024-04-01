@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <div id="app">
+        <button v-on:click = "pressButton">Clique Aqui!</button>
+    </div>
+
+    <div id="app2">
+        <input type="text" v-model="textInput">
+    </div>
+
+    <div id="app3">
+        <button v-on:click = "aumenta">Aumenta!</button>
+        <button v-on:click = "diminui">Diminui!</button>
+        <p>Contagem: {{count}}</p>
+    </div>
+    
+    <script>
+        var buttonVue = new Vue({
+            el: '#app',
+            methods: {
+                pressButton: function(){
+                    alert("BOTÃO PRESSIONADO!");
+                },
+            },
+        });
+        var textVue = new Vue({
+            el: '#app2',
+            data: {
+                textInput: "",
+            },
+        });
+        var countButtonVue = new Vue({
+            el: '#app3',
+            data: {
+                count: 0,
+            },
+            methods: {
+                aumenta: function() {
+                    this.count+=1;
+                },
+                diminui: function() {
+                    this.count-=1;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
